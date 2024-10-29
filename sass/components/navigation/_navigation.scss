@@ -1,0 +1,127 @@
+#primary-menu {
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end; /* Aligns items to the right */
+    width: 100%; /* Ensures full width of the container */
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-right: 8px;
+
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+.main-navigation {
+  display: block;
+  width: 100%; /* Ensure it spans full width of the screen */
+
+  ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    ul {
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      float: left;
+      position: absolute;
+      top: 100%;
+      left: -999em;
+      z-index: 99999;
+
+      ul {
+        left: -999em;
+        top: 0;
+      }
+
+      li {
+        &:hover > ul,
+        &.focus > ul {
+          display: block;
+          left: auto;
+        }
+      }
+
+      a {
+        width: 200px;
+      }
+
+      :hover > a,
+      .focus > a {
+      }
+
+      a:hover,
+      a.focus {
+      }
+    }
+
+    li:hover > ul,
+    li.focus > ul {
+      left: auto;
+    }
+  }
+
+  li {
+    position: relative;
+
+    &:hover > a,
+    &.focus > a {
+    }
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a,
+  .current-menu-ancestor > a {
+  }
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+  display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-navigation ul {
+    display: flex;
+    justify-content: flex-end; /* Ensure items are aligned right for larger screens */
+  }
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+  .site-main & {
+    margin: 0 0 1.5em;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-previous {
+    flex: 1 0 50%;
+  }
+
+  .nav-next {
+    text-align: end;
+    flex: 1 0 50%;
+  }
+}
